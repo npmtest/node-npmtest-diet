@@ -1,1 +1,40 @@
-{     "devDependencies": {         "diet": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-diet",     "homepage": "https://github.com/npmtest/node-npmtest-diet",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-diet.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### test coverage for  [diet (v0.15.0)](http://dietjs.com/)  [![npm package](https://img.shields.io/npm/v/npmtest-diet.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-diet) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-diet.svg)](https://travis-ci.org/npmtest/node-npmtest-diet)",
+    "devDependencies": {
+        "diet": "*",
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-diet",
+    "keywords": [
+        "coverage",
+        "test",
+        "diet"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_diet.js",
+    "name": "npmtest-diet",
+    "nameAlias": "npmtest_diet",
+    "nameOriginal": "npmtest-diet",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-diet.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
